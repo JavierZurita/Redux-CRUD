@@ -22,7 +22,7 @@ export default function NuevoProducto( {history} ){
     const submitNuevoProducto = (e) => {
         e.preventDefault();
         
-        if(nombre.trim() === '' || precio.trim() <= 0){
+        if(nombre.trim() === '' || Number(precio) <= 0){
 
             const alerta = {
                 msg: "Ambos campos son obligatorio",

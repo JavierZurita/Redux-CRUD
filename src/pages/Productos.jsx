@@ -48,23 +48,23 @@ export default function Productos () {
 
                 {error ? <p className="font-weight-bold alert alert-danger text-center mt-4">Hubo un error</p> : null}
                 {cargando ? <p className="text-center">Cargando...</p> : null}
-                <table className="table table-striped">
+                <table className="table table-striped table-bordered table-hover">
                     <thead className="bg-primary table-dark">
                         <tr>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Precio</th>
-                            <th scope="col">Acciones</th>
+                            <th scope="col" className="text-center">Nombre</th>
+                            <th scope="col" className="text-center">Precio</th>
+                            <th scope="col" className="text-center col-3">Acciones</th>
                         </tr>
                     </thead>  
                     <tbody>
-                        {productos.length === 0 ? <p>no hay productos</p>: (
+                        {productos.length === 0 ? <tr><td>no hay productos</td></tr>: (
                             productos.map(producto => 
                                 <tr key={producto.id}>
-                                    <td>{producto.nombre}</td>
-                                    <td>{producto.precio} €</td>
-                                    <td className="acciones">
-                                        <button type="button" className="btn btn-primary mr-2" onClick={()=>toEditar(producto)}>Editar</button>
-                                        <button type="button" className="btn btn-danger" onClick={()=>confirmarEliminar(producto.id)}>Eliminar</button>
+                                    <td className="align-middle text-center">{producto.nombre}</td>
+                                    <td className="align-middle text-center">{producto.precio} €</td>
+                                    <td className="acciones text-center">
+                                        <button type="button" className="btn btn-primary w-100 w-sm-auto mr-2" onClick={()=>toEditar(producto)}>Editar</button>
+                                        <button type="button" className="btn btn-danger w-100 w-sm-auto" onClick={()=>confirmarEliminar(producto.id)}>Eliminar</button>
                                     </td>
                                 </tr>
                             )
